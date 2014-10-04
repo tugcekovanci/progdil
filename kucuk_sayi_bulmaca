@@ -1,0 +1,18 @@
+sayi=$(($RANDOM%10+1))
+secilen=1
+while [ $secilen != $sayi ]
+do
+ echo "1 ile 10 arası bir sayı giriniz: "
+ read secilen
+ if [ $secilen = $sayi ]
+
+  then
+
+    echo "Tebrikler sayıyı buldunuz."
+
+ else
+
+   echo "Tekrar dene."
+
+ fi
+done
