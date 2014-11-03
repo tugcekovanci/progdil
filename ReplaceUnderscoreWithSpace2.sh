@@ -1,34 +1,37 @@
 #!/bin/bash
-function deneme()
+function ReplaceUnderscoreWithSpace()
 {
-x=$1
+
+len=${#string}
 i=0
-while [ $i -lt ${#x} ]; do y[$i]=${x:$i:1};  i=$((i+1));done
-for ((a=0; a<${#y}; a++))
-do
-if [ ${y[a]}!='_' ]
-then
-	break
-fi
+
+while [ $i -lt $len ]; do
+ dizi[$i]=${string:$i:1}
+ i=$((i+1))
 done
 
-for (( (b=${#y}-1); b>0; b-- ))
-do
-if [ ${y[b]}!='_' ]
-then
-	break
-fi
+for ((a=0; a<$len; a++)); do
+ if [[ "${dizi[$a]}" != "_" ]]; then
+  break
+ fi
 done
 
-for (( k=a; k<b; k++ ))	
-do
-if [ ${y[k]} = '_' ]
-then
-	${y[k]}=' ' 
-else
-	${y[k]}
-fi
+for (( b=$((len-1)); b>0; b-- )); do
+ if [[ "${dizi[$b]}" != "_" ]]; then
+  b=${b}
+  break
+ fi
 done
-echo ${y[@]}	
+
+for (( k=$((a+1)); k<$b; k++ )); do	
+ if [[ "${dizi[$k]}" = "_" ]]; then
+  dizi[$k]=" "
+ else
+  :
+ fi
+done
+printf "%s" "${dizi[@]}"
 }
-deneme "_safak_tugce_"
+string=$1
+ReplaceUnderscoreWithSpace
+exit 0
