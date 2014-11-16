@@ -1,5 +1,4 @@
 #!/bin/bash
-#döngü ile hesap
 function ReplaceUnderscoreWithSpace()
 {
 
