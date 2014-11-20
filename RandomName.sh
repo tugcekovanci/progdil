@@ -1,1 +1,1 @@
-#randomname
+#!/bin/bash
